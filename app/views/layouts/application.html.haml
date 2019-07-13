@@ -1,0 +1,124 @@
+!!!
+%html
+  %head
+    %meta(content="text/html; charset=UTF-8" http-equiv="Content-Type")/
+    %title Tuan's Blog
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    / Compiled and minified CSS
+    %link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet")/
+    / Compiled and minified JavaScript
+    %script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+  %body
+    %header      
+      %nav.red.darken-4.fixed-top
+        .container 
+          %ul#nav-mobile.left.hide-on-med-and-down
+            %li
+              %a.brand-logo(style = "margin-left: 20px;" href=articles_path) Home
+          %ul#nav-mobile.right.hide-on-med-and-down
+          - if user_signed_in?
+            %li.right
+              %a(href=edit_user_registration_path) Account
+              -# = link_to 'Account', edit_user_registration_path
+            %li.right
+              -# %a(href=destroy_user_session_path, method: :delete) Log Out              
+              = link_to "Log Out", destroy_user_session_path, method: :delete
+          - else
+            -# %li.right
+              -# %a(style = "margin-right: 20px;" href=new_user_registration_path) Sign Up              
+            %li.right
+              %a(style = "margin-right: 20px;" href=new_user_session_path) Log in
+              %a
+
+        -# %nav.navbar.navbar-expand-lg.navbar-light(style = "background-color: white  ;")
+        -#   .container
+        -#     %a.navbar-brand(href=home_path) Home  
+        -#     %a.navbar-brand(href=articles_path) Articles          
+        -#     %button.navbar-toggler(aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarText" data-toggle="collapse" type="button")
+        -#       %span.navbar-toggler-icon
+        -#     %div.p-2.flex-fill.bd-highlight.d-flex.justify-content-end
+        -#     - if user_signed_in?
+        -#       %span.navbar-text(style = "padding-right: 10px;")
+        -#         = link_to 'Account', edit_user_registration_path
+        -#       %span.navbar-text(style = "padding-right: 10px;")
+        -#         = link_to "Log Out", destroy_user_session_path, method: :delete
+        -#     - else                
+        -#       %span.navbar-text(style = "padding-right: 10px;")
+        -#         = link_to "Log in", new_user_session_path               
+        -#       %span.navbar-text
+        -#         = link_to "Sign Up", new_user_registration_path          
+    %br/
+    %br/
+    %br/
+    %br/
+    %br/
+      
+    .container
+      .row
+        .col-3
+          .row
+            .col.s12.m7
+              .card(style ="position: -webkit-sticky;  position: sticky;")
+                %nav.red.darken-4
+                  .nav-wrapper
+                    %a.brand-logo.center(href="#")
+                      About
+                .card-image
+                  %img(style = "border-radius: 70%;" src="https://res.cloudinary.com/dhrg7omet/image/upload/v1563016846/anh_w8fwks.jpg")/
+                .card-content
+                  %p
+                    I am a DevOps engineer, passionated in automation and workflow optimization.                
+                    .single_footer
+                      %h6
+                        Contact
+                      %dl
+                        %dd
+                          %i.fa.fa-user
+                          Vu Nhat Tuan
+                        %dd
+                          %i.fa.fa-home
+                          Ho Chi Minh city
+                        %dd
+                          %i.fa.fa-phone
+                          (+84)988 099 766
+                        %dd 
+                          %a(href="#")
+                            %i.fa.fa-envelope-square
+                            tuanvu0695@gmail.com
+                .card-action
+                  %a.red-text(href="https://tuanportfolio.funniq.com/") Go to my portfolio
+        .col-9
+          = yield
+
+    %footer(style = "margin-top: 50px;")
+      .container.d-flex.bd-highlight
+        .p-2.flex-fill.bd-highlight
+          .single_footer.author_information
+
+                
+        .p-2.flex-fill.bd-highlight
+          
+                                   
+        .p-2.flex-fill.bd-highlight
+          .single_footer
+            %h4 
+            %dl
+              %dd
+                %a(href="#")
+                  %i.fa                               
+        .p-2.flex-fill.bd-highlight
+          .single_footer
+            %h4 
+            .instagram_img
+              #instafeed
+      .container
+        .row
+          .col-lg-6.col-md-6.col-sm-6
+            .widget_copyright
+              %p
+                
+          .col-lg-6.col-md-6.col-sm-6
+            .payment

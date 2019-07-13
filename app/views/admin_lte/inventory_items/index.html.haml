@@ -1,0 +1,63 @@
+- if user_signed_in? && current_user.admin
+  .row
+    .col-xs-12
+      .box
+        .box-header
+          %h3.box-title List of Users
+        .box-body
+          #user_wrapper.dataTables_wrapper.form-inline.dt-bootstrap
+            .row
+              .col-sm-12
+                %table#user_index.table.table-bordered.table-striped.dataTable(role="grid")
+                  %thead
+                    %tr
+                      %th inventory_item_category_id
+                      %th Name
+                      %th Price
+                      %th Description
+                      %th.col-xs-1 Actions
+                  %tbody
+                    - @inventory_items.each do |inventory_items|
+                      %tr
+                        %td
+                          = inventory_items.inventory_item_category_id
+                        %td
+                          = inventory_items.name
+                        %td
+                          = inventory_items.price
+                        %td
+                          = inventory_items.description    
+                        %td
+                          .btn-row
+                            = link_to raw('<i class="fa fa-cogs"></i>'), edit_admin_lte_inventory_item_url(inventory_items), class: 'btn btn-sm btn-warning'
+                            = link_to raw('<i class="fa fa-trash"></i>'), admin_lte_inventory_item_url(inventory_items), class: 'btn btn-sm btn-danger', method: :delete, |
+                              data: { confirm: 'Are you sure you want to delete this element?' }                                                     |
+                  %tfoot
+                    %tr(role="row")
+                      %th Name
+                      %th Email
+                      %th.col-xs-1 Actions
+  .row
+    .col-md-2.col-md-offset-10
+      = link_to 'New User', new_admin_lte_user_path, class: 'btn btn-success pull-right'
+- else
+  .card(style = "margin: 20px 0px;")
+    .card-header
+      Featured Products
+      = paginate @inventory_items
+      = page_entries_info @inventory_items
+      //= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+    .card-body
+      .row
+        - @inventory_items.each do |inventory_item| 
+          .card.text-center.col-lg-4.col-md-6(style = "margin: 5px 0px;")          
+            //- binding.pru
+            = link_to image_tag(inventory_item.image_url(:inventory_item)), inventory_item, :class => "img card-img-top"          
+            .card-body       
+              %h5.card-title 
+                =inventory_item.name
+              %p.card-text
+                Unit Price:
+                =number_to_currency inventory_item.price
+              %p.card-text  
+              = button_to 'Add to cart', order_line_items_path(inventory_item_id: inventory_item), remote: true, class: 'btn button btn-primary'
