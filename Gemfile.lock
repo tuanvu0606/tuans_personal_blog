@@ -60,7 +60,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    ahoy_matey (2.2.0)
       addressable
       browser (~> 2.0)
       device_detector
@@ -333,7 +332,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
-  ahoy_matey
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.2.1)
   byebug
