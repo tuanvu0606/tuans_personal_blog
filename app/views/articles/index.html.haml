@@ -27,24 +27,18 @@
           .nav-wrapper
             %a.brand-logo.center(href="#")
               Recent Posts
-        .card
-          .card-header
-            Articles    
-            -# = paginate @articles
-            -# = page_entries_info @articles   
-          .card-body   
-            - @articles.each do |article| 
-              .card.text-center(style ="margin-top:10px;")
-                .card-header
-                  %h5.card-title 
-                    =article.name
-                -# %img.card-img-top(alt="Card image cap" src="https://res.cloudinary.com/dhrg7omet/image/upload/v1561473195/65205391_10159166494891840_7209027212480086016_n_e2r70w.jpg")/
-                .card-body                      
-                  %p.card-text 
-                    =article.description
-                  //%a.btn.btn-primary
-                  //  = link_to 'Details', article
-                  = link_to 'Details', article, :class => "a btn btn-primary"
-                .card-footer.text-muted
-                  Updated at:
-                  =article.updated_at
+        - @articles.each do |article| 
+          .card.text-center(style ="margin-top:10px;")
+            .card-header
+              %h5.card-title 
+                =article.name
+            -# %img.card-img-top(alt="Card image cap" src="https://res.cloudinary.com/dhrg7omet/image/upload/v1561473195/65205391_10159166494891840_7209027212480086016_n_e2r70w.jpg")/
+            .card-body                      
+              %p.card-text 
+                =article.description
+              //%a.btn.btn-primary
+              //  = link_to 'Details', article
+              = link_to 'Details', article, :class => "a btn btn-primary"
+            .card-footer.text-muted
+              Updated at:
+              =article.updated_at
