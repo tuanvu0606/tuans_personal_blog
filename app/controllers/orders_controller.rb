@@ -65,9 +65,9 @@ class OrdersController < ApplicationController
             @order.order_line_items.each do |f|                       
             f.fixed_item_price = f.inventory_item.price
             f.save
-            @related_item = InventoryItem.find(f.inventory_item_id)
-            @related_item.sold_quantity = @related_item.sold_quantity.to_i + f.order_item_qty.to_i
-            @related_item.save
+            # @related_item = InventoryItem.find(f.inventory_item_id)
+            # @related_item.sold_quantity = @related_item.sold_quantity.to_i + f.order_item_qty.to_i
+            # @related_item.save
             format.html { redirect_to checkout_path, notice: 'Checkout'}
             # cookies[:order_id] = ""          
           end

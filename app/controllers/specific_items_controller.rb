@@ -91,7 +91,7 @@ private
     end
 
     def increase_inventory_item(specific_item)
-      inventory_item = InventoryItem.find(specific_item.inventory_item_id.to_s)
+      # inventory_item = InventoryItem.find(specific_item.inventory_item_id.to_s)
       inventory_item.increment(:quantity)
       inventory_item.save
       #binding.pry

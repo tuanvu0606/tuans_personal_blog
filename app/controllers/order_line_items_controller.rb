@@ -31,7 +31,7 @@ class OrderLineItemsController < ApplicationController
     #@order_line_item = OrderLineItem.new(order_line_item_params)
     #@order.save
     #session[:order_id] = @order.id
-    inventory_item = InventoryItem.find(params[:inventory_item_id])
+    # inventory_item = InventoryItem.find(params[:inventory_item_id])
     
     if inventory_item.quantity == nil || inventory_item.quantity <= 0
       redirect_to home_path, notice: 'not enough.' 
