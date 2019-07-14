@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tuansblog:latest
+    #    command: /bin/bash -c "/sbin/my_init && bundle exec rails db:create && bundle exec rails db:migrate"    
+    #    command: /bin/bash -c "CMD tail -f /dev/null"
+          #    image: app:latest
+    #command: bundle exec rails s -p 5050 -b '0.0.0.0'
+    volumes:
+      - ".:/tuans_blog"
+    ports:
+      - "80:80"
+    environment:
+      DB_USER: ruby
+      DB_NAME: net_review_app
+      DB_PASSWORD: Cisco@123
+      DB_HOST: 10.0.2.23
+    tty: true 
+    stdin_open: true        
