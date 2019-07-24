@@ -3,7 +3,7 @@ FROM tvudocker/tuansblog_20_7_19
 MAINTAINER Tuan Vu
 #ENV HOME /root
 #USER root
-ENV APP_HOME /home/app/webapp
+ENV APP_HOME /home/app/tuanblog
 ENV SECRET_KEY_BASE efe567a36b1d63fa275089e11665080b0aa0bdda46b35da28ec55ce46685c616db4d722d4077c1660937f0e93b96cd059ae9cd946a0221fed2fe628eeef9897d
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
@@ -15,7 +15,7 @@ EXPOSE 8888
 RUN rm -f /etc/service/nginx/down
 
 # Configure Nginx
-RUN rm /etc/nginx/sites-enabled/default
+#RUN rm /etc/nginx/sites-enabled/default
 ADD docker/netapp.conf /etc/nginx/sites-enabled/netapp.conf
 #ADD docker/configs/nginx-rails-env.conf /etc/nginx/main.d/rails-env.conf
 

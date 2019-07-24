@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: tuansblog:latest
+    image: tuanblog_stable:latest
     #    command: /bin/bash -c "/sbin/my_init && bundle exec rails db:create && bundle exec rails db:migrate"    
     #    command: /bin/bash -c "CMD tail -f /dev/null"
           #    image: app:latest
