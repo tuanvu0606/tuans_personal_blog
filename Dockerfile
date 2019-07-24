@@ -1,4 +1,5 @@
-FROM phusion/passenger-ruby23:latest
+#FROM phusion/passenger-ruby23:latest
+FROM tvudocker/tuansblog_20_7_19
 MAINTAINER Tuan Vu
 #ENV HOME /root
 #USER root
@@ -8,6 +9,7 @@ ENV SECRET_KEY_BASE efe567a36b1d63fa275089e11665080b0aa0bdda46b35da28ec55ce46685
 CMD ["/sbin/my_init"]
 
 EXPOSE 80
+EXPOSE 443
 EXPOSE 8888
 
 RUN rm -f /etc/service/nginx/down
