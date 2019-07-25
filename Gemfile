@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'mysql2'
 # ruby '2.3.8'
 gem 'redcarpet'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
