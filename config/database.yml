@@ -21,12 +21,13 @@ test:
   database: db/test.sqlite3
 
 production:
-  # <<: *default
-  timeout: 5000
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: ruby
-  password: Cisco@123
-  host: 10.0.2.23
-  database: tuan_blog_prod
+  <<: *default
+  database: db/production.sqlite3
+  # timeout: 5000
+  # adapter: mysql2
+  # encoding: utf8
+  # pool: 5
+  # username: ruby
+  # password: Cisco@123
+  # host: 10.0.2.23
+  # database: tuan_blog_prod
