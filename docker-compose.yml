@@ -18,7 +18,7 @@ services:
       # Tell it to use our predefined entrypoint named "web"
       - "--certificatesresolvers.myhttpchallenge.acme.httpchallenge.entrypoint=web"
       # - "--certificatesresolvers.myhttpchallenge.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      - "--certificatesresolvers.myhttpchallenge.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"      
+      # - "--certificatesresolvers.myhttpchallenge.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"      
       # The email to provide to let's encrypt
       - "--certificatesresolvers.myhttpchallenge.acme.email=tuanvu0695@gmail.com"
       - "--certificatesresolvers.myhttpchallenge.acme.storage=/letsencrypt/acme.json"
