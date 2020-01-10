@@ -40,7 +40,7 @@ services:
       - "traefik.http.routers.whoami.rule=Host(`tuanblog.funniq.com`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls.certresolver=myhttpchallenge"
-    ports:
+    # ports:
       # - "8085:3000"
   
   sqlite3:
